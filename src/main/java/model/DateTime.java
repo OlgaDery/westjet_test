@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
  */
 public class DateTime implements Serializable {
 	
-	/**
-	 * 
+	/**This class in used to model the JSON object in the QuiryTime class to return 
+	 * it to client.
 	 */
 	private static final long serialVersionUID = -4483076175562997754L;
 

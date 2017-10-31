@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class AddValues implements Serializable {
 	
-	/**
+	/**This class is used to calculate 2 values being received from client via Rest recourses.
 	 * 
 	 */
 	private static final long serialVersionUID = 8309660929271483298L;
