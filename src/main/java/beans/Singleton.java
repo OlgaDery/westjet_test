@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-
 public class Singleton {
 	
 	//This is a simple representation of a real-life data storage where authentication keys for users 
@@ -22,6 +21,10 @@ public class Singleton {
 	}
 
 	private static final String [] keys = {"3.14"};
+	
+	public String sayHi () {
+		return "hi";
+	}
 	
 	
 	
