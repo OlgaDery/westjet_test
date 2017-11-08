@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * @author Olga
  *
  */
-public class DateTime implements Serializable {
+public class DateTime implements Serializable, DateTimeIF {
 	
 	/**This class in used to model the JSON object in the QuiryTime class to return 
 	 * it to client.
@@ -31,6 +31,10 @@ public class DateTime implements Serializable {
 		this.time = nowTime;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.DateTimeIF#getZone()
+	 */
+	@Override
 	public String getZone() {
 		return zone;
 	}
@@ -39,6 +43,10 @@ public class DateTime implements Serializable {
 		this.zone = zone;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.DateTimeIF#getTime()
+	 */
+	@Override
 	public LocalDateTime getTime() {
 		return time;
 	}

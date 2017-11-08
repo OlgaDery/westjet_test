@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import beans.ApplicationContexProvider;
 import beans.Singleton;
-import model.DateTime;
+import model.DateTimeIF;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -69,7 +69,7 @@ public class QueryTime {
 		
 //Parsing the json and creating a new one using gson library
 						GsonUtils utils = new GsonUtils();
-						DateTime dateTime = utils.processJson(data);
+						DateTimeIF dateTime = utils.processJson(data);
 
 //Here the new json object is being created from the DateTime object. Than it is being 
 //returned to client.						

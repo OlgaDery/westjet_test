@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Olga
  *
  */
-public class AddValues implements Serializable {
+public class AddValues implements Serializable, AddValuesIF {
 	
 	/**This class is used to calculate 2 values being received from client via Rest recourses.
 	 * 
@@ -30,6 +30,10 @@ public class AddValues implements Serializable {
 		this.result = val1 + val2;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AddValuesIF#getValue1()
+	 */
+	@Override
 	public Integer getValue1() {
 		return value1;
 	}
@@ -38,6 +42,10 @@ public class AddValues implements Serializable {
 		this.value1 = value1;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AddValuesIF#getValue2()
+	 */
+	@Override
 	public Integer getValue2() {
 		return value2;
 	}
@@ -46,6 +54,10 @@ public class AddValues implements Serializable {
 		this.value2 = value2;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AddValuesIF#getResult()
+	 */
+	@Override
 	public Integer getResult() {
 		return result;
 	}

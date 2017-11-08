@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.google.gson.JsonParser;
 import model.DateTime;
+import model.DateTimeIF;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -27,7 +28,7 @@ public class GsonUtils {
 		
 	}
 	
-	public DateTime processJson (String data) {
+	public DateTimeIF processJson (String data) {
 		//Parsing the json and creating a new one using gson library
 		
 		JsonElement jelement = new JsonParser().parse(data);

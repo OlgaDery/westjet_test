@@ -14,15 +14,16 @@ Here the most important considerations regarding how this app was design and dep
 
 ### Configuration:
 The application was built as a standalone app and supposed to be run via the "main" method in the "App" class (package "rest"). Such approach has the following advantages:
-- Standalone jars to assemble and deploy, they may be easily redeployed. It provides great benefits for scalable infrastructures (like SOA systems);
+- Standalone jars/wars are easy to assemble and deploy, they may be easily redeployed. It provides great benefits for scalable infrastructures (like SOA systems);
 - They are easy to configure, so the team work require less control.
 In some situation common server deployment may be preferable, it will be easy to deploy the same WAR/Jar inside the container.
 
 ### Design:
 
 There are simple 2-tier application with a set of RESTful controllers and two beans(package "beans"),
-one of them is responsible for storing ApplicationContext (this is ApplicationContexProvider class) and another one - the singleton bean with the method storing the authentication keys for users (Singleton class). Beans are being instantiated in AppConfig class. Application Context is injectable via @Autowired annotation, beans may be extracted from Application Context using getBean (<Params>) method. Also there is "model" package containing 2 POJO classes.
+one of them is responsible for storing ApplicationContext (this is ApplicationContexProvider class) and another one - the singleton bean with the method storing the authentication keys for users (Singleton class). Beans are being instantiated in AppConfig class. Application Context is injectable via @Autowired annotation, beans may be extracted from Application Context using getBean (<Params>) method. Also there is "model" package containing 2 POJO classes with the related interfaces.
 
+Remark: for the same purpose the JavaEE APIs may be considered (like EJBs etc). May be the most efficient solution would be to combine the functionality of Spring Boot (to design the end points) and JavaEE for building of the business logic and DB layer.
 
 ### APIs access and security:
 

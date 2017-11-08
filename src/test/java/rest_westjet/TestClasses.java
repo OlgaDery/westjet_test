@@ -12,7 +12,9 @@ import org.junit.Test;
 
 import beans.Singleton;
 import model.AddValues;
+import model.AddValuesIF;
 import model.DateTime;
+import model.DateTimeIF;
 import rest.GsonUtils;
 
 public class TestClasses {
@@ -37,16 +39,16 @@ public class TestClasses {
 	@Test
     public void testEqualsAddValues() {
 	//Assert that equals method works properly
-    AddValues av = new AddValues(3,4);
-    AddValues av1 = new AddValues(3,5);
+    AddValuesIF av = new AddValues(3,4);
+    AddValuesIF av1 = new AddValues(3,5);
     assertEquals(false, av.equals(av1));
     }
 	
 	@Test
     public void testEqualsDateTime() {
 	//Assert that equals method works properly
-    DateTime dt1 = new DateTime();
-    DateTime dt2 = new DateTime();
+    DateTimeIF dt1 = new DateTime();
+    DateTimeIF dt2 = new DateTime();
     assertEquals(true, dt1.equals(dt2));
     }
 	
@@ -54,7 +56,7 @@ public class TestClasses {
     public void assertNotNullDateTime() {
    //Asserting that the fields of the class are not null
 		 
-	DateTime dt1 = new DateTime("MST", LocalDateTime.now());
+	DateTimeIF dt1 = new DateTime("MST", LocalDateTime.now());
 	assertNotNull(dt1.getTime());	
 	assertNotNull(dt1.getZone());	
     }
@@ -63,7 +65,7 @@ public class TestClasses {
     public void assertJSONParsing() {
 	//Assert how JSON parser works
 		GsonUtils utils = new GsonUtils();
-		DateTime dt = utils.processJson ("{\"status\":\"OK\",\"message\":\"no\",\"abbreviation\":\"MDT\",\"formatted\":\"2017-10-31 10:46:28\"}");
+		DateTimeIF dt = utils.processJson ("{\"status\":\"OK\",\"message\":\"no\",\"abbreviation\":\"MDT\",\"formatted\":\"2017-10-31 10:46:28\"}");
 		assertEquals(dt.getZone(), "MDT");
     }
 	

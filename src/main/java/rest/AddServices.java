@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import beans.ApplicationContexProvider;
 import beans.Singleton;
 import model.AddValues;
+import model.AddValuesIF;
 
 /**
  * @author Olga
@@ -60,10 +61,10 @@ public class AddServices {
 				String key = request.getHeader("authorization");
 	
 	//Checking up our data set containing all the client keys (in real life it would be singleton set/list or cache). 
-				if (Arrays.asList(contextProvider.getApplicationContext().getBean(Singleton.class).getKeys()).contains(key)) {
+				if ((contextProvider.getApplicationContext().getBean(Singleton.class).getKeys()).contains(key)) {
 					try {
 						logger.info("valid key has been provided");
-						AddValues addValues = new AddValues (Integer.valueOf(param1), Integer.valueOf(param2));
+						AddValuesIF addValues = new AddValues (Integer.valueOf(param1), Integer.valueOf(param2));
 						Integer result = addValues.getResult();
 						
 	//In the case of authentication key and all the parameters are correctly provided, we are returning
@@ -117,7 +118,7 @@ public class AddServices {
 					logger.info(key);
 				
 	//Checking up our data set containing all the client keys (in real life it would be singleton set/list or cache). 
-					if (Arrays.asList(contextProvider.getApplicationContext().getBean(Singleton.class).getKeys()).contains(key)) {
+					if ((contextProvider.getApplicationContext().getBean(Singleton.class).getKeys()).contains(key)) {
 						try {
 							logger.info("valid key has been provided");
 							
@@ -126,7 +127,7 @@ public class AddServices {
 							Integer value1 = Integer.valueOf(Arrays.asList(paramMap.get("n1")).get(0));
 							Integer value2 = Integer.valueOf(Arrays.asList(paramMap.get("n2")).get(0));
 							
-							AddValues addValues = new AddValues (Integer.valueOf(value1), Integer.valueOf(value2));
+							AddValuesIF addValues = new AddValues (Integer.valueOf(value1), Integer.valueOf(value2));
 							
 	//If we created a new object and submitted it to the database, we would return "Created" status.
 							

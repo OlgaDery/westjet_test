@@ -12,8 +12,13 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author Olga
- *
+ * This class is to store the ApplicationContext. The ApplicationContext
+ * is being set on the application start up what is the feature of the framework
+ * It is accessible via get method. As this class is declared as a bean in the 
+ * AppConfig class, the public methods of this class are available after the class
+ * is being injected.
  */
+
 @Component
 public class ApplicationContexProvider implements ApplicationContextAware {
 	
@@ -22,6 +27,10 @@ public class ApplicationContexProvider implements ApplicationContextAware {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public ApplicationContext getApplicationContext() {
+    	//getting the app context from other app components
+    	logger.info("enter getApplicationContext");
+    	
+    	logger.info("exit getApplicationContext");
         return context;
     }
 
@@ -29,7 +38,7 @@ public class ApplicationContexProvider implements ApplicationContextAware {
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
-		// TODO Auto-generated method stub
+		// TODO this method is being called on the app start up
 		
 		logger.info("enter setApplicationContext");
 		context = applicationContext;

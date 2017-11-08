@@ -18,6 +18,8 @@ public class RestTemplateModified extends RestTemplate{
 	private final Logger log = LoggerFactory.getLogger(getClass());
 	
 	public RestTemplateModified() {
+		
+		log.info("enter RestTemplateModified");
         if (getRequestFactory() instanceof SimpleClientHttpRequestFactory) {
             log.info("HttpUrlConnection is used");
             ((SimpleClientHttpRequestFactory) getRequestFactory()).setConnectTimeout(1000);
@@ -27,6 +29,7 @@ public class RestTemplateModified extends RestTemplate{
             ((HttpComponentsClientHttpRequestFactory) getRequestFactory()).setReadTimeout(1000);
             ((HttpComponentsClientHttpRequestFactory) getRequestFactory()).setConnectTimeout(1000);
         }
+        log.info("exit RestTemplateModified");
     }
 
 
